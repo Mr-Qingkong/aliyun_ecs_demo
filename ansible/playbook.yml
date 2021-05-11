@@ -1,0 +1,23 @@
+---
+- hosts: web
+  remote_user: "{{ ansible_user }}"
+  vars:
+    ansible_ssh_private_key_file: "{{ pk_file }}"
+
+  tasks:
+    - name: Wait 300 seconds, but only start checking after 20 seconds
+      wait_for_connection:
+        delay: 40
+        timeout: 300
+
+    - name: ensure nginx is at the latest version
+      apt:
+        name: nginx
+        state: latest
+      become: yes
+
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
+      become: yes
