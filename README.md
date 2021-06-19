@@ -1,7 +1,9 @@
-该模块用来演示执行 创建ecs + 在ecs上部署nginx 的过程
+## 使用说明
 
-注意使用该模块，请通过环境变量配置ak/sk 秘钥
+该模块会在阿里云服务上创建ecs服务器，并在该Ecs服务器配置并启动nginx 服务。
 
-ALICLOUD_ACCESS_KEY=LTA***bLs
-ALICLOUD_SECRET_KEY=CUip*****ps2zof
-ALICLOUD_REGION=cn-beijing
+### 参考
+
+关于阿里云更多terraform支持资源，请参考其官方文档 [Refer to details](https://github.com/aliyun/terraform-provider-alicloud)
+
+

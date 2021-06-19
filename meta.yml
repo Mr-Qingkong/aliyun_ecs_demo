@@ -2,46 +2,13 @@
 version: 0.1 # 配置格式版本号，方便做兼容
 templates:
   - name: Deploy nginx service # 模板名称
-
     # 以下基于 tf-aliyunecs-ansible 代码库做示例配置
     terraform:
       # 工作目录，以下所有配置中的文件相对路径都是基于该目录
       workdir: ./
-
-
-      # tf 变量定义(用于 -var 参数)，可以在模板配置页面修改
-      var:
-        private_key: "~/.ssh/id_rsa"
-        public_key: "~/.ssh/id_rsa.pub"
-
-      # tfvars 文件路径(用于 -var-file 参数)，可以在模板配置页面修改
-      var_file: ""
-
-    ansible:
-      # 工作目录，以下所有配置中的文件相对路径都是基于该目录
-      workdir: "./ansible/"
-
-      # main playbook
-      playbook: "playbook.yml"
-
-      # 指定 inventory 文件(方便测试)，不指定则基于 tfstate 动态生成
-      inventory: ""
-
     # 环境变量，可以在模板配置页面修改
     env:
       ALICLOUD_ACCESS_KEY: ""
       ALICLOUD_SECRET_KEY: ""
       ALICLOUD_REGION: "cn-beijing"
 
-  # 所有配置项的默认值，如果没有 iac.yaml 文件，创建模板时就会使用这些默认值
-  - name: Default settings
-    terraform:
-      workdir: "./"
-      workspace: ""
-      var: {}
-      var_file: "" # terraform 会自动加载 "terraform.tfvars" 或 "*.auto.tfvars"
-    ansible:
-      workdir: "./ansible/"
-      playbook: ""
-      inventory: ""
-    env: {}
