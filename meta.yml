@@ -1,7 +1,7 @@
 ---
 version: 0.1 # 配置格式版本号，方便做兼容
 templates:
-  - name: Deploy nginx service # 模板名称
+  - name: tf-aliyunecs-ansible # 模板名称
     # 以下基于 tf-aliyunecs-ansible 代码库做示例配置
     terraform:
       # 工作目录，以下所有配置中的文件相对路径都是基于该目录
