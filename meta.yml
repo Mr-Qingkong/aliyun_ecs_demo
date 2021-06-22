@@ -1,14 +1,11 @@
----
-version: 0.1 # 配置格式版本号，方便做兼容
+version: 0.1
 templates:
-  - name: tf-aliyunecs-ansible # 模板名称
-    # 以下基于 tf-aliyunecs-ansible 代码库做示例配置
-    terraform:
+- name: tf-aliyunecs-ansible
+  terraform:
       # 工作目录，以下所有配置中的文件相对路径都是基于该目录
-      workdir: ./
-    # 环境变量，可以在模板配置页面修改
-    env:
-      ALICLOUD_ACCESS_KEY: ""
-      ALICLOUD_SECRET_KEY: ""
-      ALICLOUD_REGION: "cn-beijing"
-
+    workdir: ./
+    save_state: true
+  env:
+    ALICLOUD_ACCESS_KEY: ''
+    ALICLOUD_SECRET_KEY: ''
+    ALICLOUD_REGION: cn-beijing
