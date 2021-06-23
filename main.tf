@@ -65,5 +65,4 @@ resource "ansible_host" "web" {
       port = 80
       ansible_user = "root"
     }
-  )
 }
