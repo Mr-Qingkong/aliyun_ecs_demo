@@ -2,10 +2,13 @@ version: 0.1
 templates:
 - name: tf-aliyunecs-ansible
   terraform:
-      # 工作目录，以下所有配置中的文件相对路径都是基于该目录
     workdir: ./
     save_state: true
-  env:
-    ALICLOUD_ACCESS_KEY: ''
-    ALICLOUD_SECRET_KEY: ''
-    ALICLOUD_REGION: cn-beijing
+    instance_number: 1
+    instance_type: "ecs.n2.small"
+  repo_branch: "master"
+  description: "该模块会在阿里云服务上创建ecs服务器，并在该Ecs服务器配置并启动nginx 服务。"
+  timeout: 300
+  ansible:
+    workdir: "./ansible/"
+    playbook: "playbook.yml"
