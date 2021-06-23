@@ -1,9 +1,7 @@
 ---
 - hosts: web
   remote_user: "{{ ansible_user }}"
-  vars:
-    ansible_ssh_private_key_file: "{{ pk_file }}"
-
+  gather_facts: no
   tasks:
     - name: Wait 300 seconds, but only start checking after 20 seconds
       wait_for_connection:
